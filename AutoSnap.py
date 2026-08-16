@@ -90,9 +90,9 @@ def grab_and_save_one(output_dir: str, monitor_index: int, filename_prefix: str,
         raw = sct.grab(mon)                # BGRA
         img = Image.frombytes("RGB", raw.size, raw.rgb)
 
-    filename = f"{filename_prefix}_{i:04d}.png"
+    filename = f"{filename_prefix}_{i:04d}.jpg"
     filepath = os.path.join(output_dir, filename)
-    img.save(filepath)
+    img.save(filepath, "JPEG", quality=82, optimize=True)
     return filepath
 
 
